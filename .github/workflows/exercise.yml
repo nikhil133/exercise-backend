@@ -11,7 +11,7 @@ env:
   DUPLO_TENANT: exercise 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: alpine-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -30,7 +30,7 @@ jobs:
     outputs:
       image: "${{ steps.build-and-push.outputs.image }}:${{ github.sha }}"
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: alpine-latest
     needs:
     - build
     steps:
